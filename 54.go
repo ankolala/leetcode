@@ -5,7 +5,6 @@ import "fmt"
 func spiralOrder(matrix [][]int) []int {
 	m := len(matrix)
 	// 边界检查
-	m := len(matrix)
 	if m == 0 {
 		return nil
 	}
