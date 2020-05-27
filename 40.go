@@ -39,10 +39,17 @@ func getLeastNumbers(arr []int, k int) []int {
 
 }
 
+
+func ConvIDLongToShort(longID uint64) (shortID uint64) {
+	shortID = longID & 0xffffffffffff
+	return
+}
+
 func main() {
 	arr := []int{1,1,4,7,5,4}
 	sort.Ints(arr)
 	fmt.Println(arr)
 	k := 3
 	fmt.Println(getLeastNumbers(arr, k))
+	fmt.Println(ConvIDLongToShort(17594616345752))
 }

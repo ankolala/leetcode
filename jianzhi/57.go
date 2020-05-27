@@ -3,45 +3,26 @@ package main
 import "fmt"
 
 
-
-func findContinuousSequence(target int) [][]int {
-
-	i, j, sum  := 1, 2, 3
-
-	final := make([][]int,0)
-
-	for j < target {
-
-
-		if sum < target {
-			j += 1
-			sum += j
+func twoSum(nums []int, target int) []int {
+	i, j := 0, len(nums) - 1
+	for i < j {
+		if nums[i] + nums[j] < target {
+			i ++
 		}
 
-		if sum == target {
-			result := make([]int, 0)
-
-			for t:=i;t<=j;t++{
-				result = append(result, t)
-			}
-
-			final  = append(final, result)
-			j += 1
-			sum += j
+		if nums[i] + nums[j] > target {
+			j --
 		}
 
-		if sum > target {
-			sum -= i
-			i += 1
+		if nums[i] + nums[j] == target {
+			break
 		}
-
 	}
-	return final
-
-
+	return []int{nums[i], nums[j]}
 }
 
 func main() {
-
-	fmt.Println(findContinuousSequence(2))
+	// 递增数组
+	nums := []int{0,1,2,7,9}
+	fmt.Println(twoSum(nums, 9))
 }
