@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-type ListNode struct {
+type ListNodeNode struct {
      Val int
-     Next *ListNode
+     Next *ListNodeNode
 }
 
 // 判断是否为回文链表
@@ -12,7 +12,7 @@ type ListNode struct {
 // 快慢指针：找到链表中点, 反转链表，依次作比较
 // 额外开辟数组空间
 
-func isPalindrome(head *ListNode) bool {
+func isPalindrome(head *ListNodeNode) bool {
 	if head == nil || head.Next == nil {
 		return true
 	}
@@ -42,24 +42,24 @@ func main() {
 	// 2->4->3->1->3->4->2 true
 	// 3->1->1->3
 
-	fourth := &ListNode{
+	fourth := &ListNodeNode{
 		Val: 3,
 		Next: nil,
 
 	}
 
-	third := &ListNode{
+	third := &ListNodeNode{
 		Val: 1,
 		Next: fourth,
 
 	}
-	second := &ListNode{
+	second := &ListNodeNode{
 		Val: 1,
 		Next: third,
 
 	}
 
-	head := &ListNode{
+	head := &ListNodeNode{
 		Val: 3,
 		Next: second,
 	}

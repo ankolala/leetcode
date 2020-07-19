@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// 快速排序: 复杂度o(log(n))
 func quick_sort(arr []int, low int, high int){
 
 
@@ -24,17 +25,19 @@ func quick_sort(arr []int, low int, high int){
 		arr[i], arr[j] = arr[j], arr[i]
 
 	}
+	fmt.Println("pre:","low=", low, "i=",i, "j=",j,"arr=",arr)
 
 	arr[low] = arr[i]
 	arr[i] = pivot
 
+	fmt.Println("after:","low=", low, "i=",i, "j=",j,"arr=",arr)
 	quick_sort(arr,low, i-1)
 	quick_sort(arr, i+1, high)
 }
 
 
 func main() {
-	in := []int{1,2,3}
+	in := []int{4,5,1,2,0,9,3}
 
 	/*
 	{2,3,4,1,0,5}
@@ -43,7 +46,7 @@ func main() {
 	{1,5,2,4,3,5} base =2
 	 */
 
-	quick_sort(in, 0,2)
+	quick_sort(in, 0,6)
 
 	fmt.Println(in)
 }

@@ -13,25 +13,22 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	if headA == nil || headB == nil {
 		return nil
 	}
+	slow, fast := headA, headB
 
-	p1, p2 := headA, headB
-
-	for p1 != p2 {
-		if (p1 != nil) {
-			p1 = p1.Next
+	for slow != fast {
+		if (slow != nil) {
+			slow = slow.Next
 		} else {
-			p1 = headB
+			slow = headB
 		}
 
-		if (p2 != nil) {
-			p2 = p2.Next
+		if (fast != nil) {
+			fast = fast.Next
 		} else {
-			p2 = headA
+			fast = headA
 		}
 	}
-
-
-	return p1
+		return slow
 }
 
 func main() {

@@ -7,30 +7,31 @@ type ListNode struct {
 	Next *ListNode
 }
 
-// 1->2->3->4
-// 2->1->4->3
+// 1->2->3->4->nil
+// nil<-1 2->3->4->nil
 func swapPairs(head *ListNode) *ListNode {
 
 	if head == nil || head.Next == nil {
 		return head
 	}
 
-	if head.Next.Next == nil {
-		// 1->2
-		next := head.Next // next = 2
-		head.Next = nil
-		tmp := head // tmp = 1
-		next.Next = tmp
-		return next
-	}
-	// 1->2->3->4
-	// 2->1->4->3
-	next := head.Next // 2->3->4
-	head.Next = swapPairs(next.Next) // 1->3->4
-	tmp := head
-	next.Next = tmp
+	var pre *ListNode
+	var after *ListNode
+	cur := head
 
-	return next
+	for cur != nil {
+		after = cur.Next // 2
+		cur.Next = pre //
+
+		pre = cur
+		cur = after
+
+		fmt.Println(cur, after)
+	}
+
+	fmt.Println("pre", pre)
+	return pre
+
 
 }
 
@@ -53,7 +54,8 @@ func main(){
 	head.Val = 1
 
 	tmp := swapPairs(head)
-	fmt.Println(tmp.Val, tmp.Next.Val, tmp.Next.Next.Val)
+
+	fmt.Println(tmp)
 
 
 }

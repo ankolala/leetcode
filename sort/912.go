@@ -4,6 +4,8 @@ import (
 	"fmt"
 )
 
+// 冒泡排序: 复杂度o(n2)
+
 func sortArray(nums []int) []int {
 	size := len(nums)
 	for i:=0;i<size;i++{
